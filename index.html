@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AmilcarGit — Mods y Skins para Minecraft</title>
+<meta name="description" content="Mods, add-ons y skins de Minecraft Bedrock creados por AmilcarGit.">
+<link rel="icon" href="assets/dimension-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-void:#0c0817;
+    --bg-panel:#160f28;
+    --bg-panel-2:#1d1436;
+    --amethyst:#9b5fe0;
+    --amethyst-bright:#caa0ff;
+    --amethyst-deep:#5a2fa0;
+    --gold:#e0ab5f;
+    --text-hi:#f2ecff;
+    --text-lo:#b9aed8;
+    --line:rgba(155,95,224,0.25);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{ background:var(--bg-void); color:var(--text-hi); font-family:'Manrope',sans-serif; }
+  h1,h2,h3{ font-family:'Cormorant Garamond',serif; font-weight:700; letter-spacing:0.02em; }
+  a{ color:inherit; text-decoration:none; }
+
+  .bg-glow{
+    position:fixed; inset:0; z-index:-1;
+    background:
+      radial-gradient(ellipse 900px 600px at 15% -10%, rgba(155,95,224,0.32), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 90% 10%, rgba(224,171,95,0.10), transparent 60%),
+      radial-gradient(ellipse 900px 700px at 50% 120%, rgba(90,47,160,0.35), transparent 60%),
+      var(--bg-void);
+  }
+
+  nav{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 6vw;
+    background:rgba(12,8,23,0.75);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{ display:flex; align-items:center; gap:10px; font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:700; }
+  .brand .gem{ width:16px; height:16px; background:linear-gradient(135deg,var(--amethyst-bright),var(--amethyst-deep)); clip-path:polygon(50% 0%,100% 38%,78% 100%,22% 100%,0% 38%); }
+  nav .tag{ font-size:0.8rem; color:var(--text-lo); border:1px solid var(--line); padding:6px 14px; border-radius:100px; }
+
+  .hero{ text-align:center; padding:100px 6vw 60px; }
+  .eyebrow{ font-size:0.78rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:22px; font-weight:700; }
+  .hero h1{ font-size:clamp(2.6rem,8vw,4.6rem); line-height:1.02;
+    background:linear-gradient(180deg, var(--text-hi) 30%, var(--amethyst-bright) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero p{ max-width:560px; margin:22px auto 0; color:var(--text-lo); font-size:1.05rem; line-height:1.6; }
+
+  section{ padding:60px 6vw 100px; max-width:1180px; margin:0 auto; }
+  .section-head{ margin-bottom:44px; }
+  .kicker{ color:var(--gold); font-size:0.78rem; letter-spacing:0.28em; text-transform:uppercase; font-weight:700; margin-bottom:10px; }
+  .section-head h2{ font-size:clamp(1.8rem,4vw,2.4rem); }
+
+  .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:26px; }
+  .card{
+    background:var(--bg-panel-2); border:1px solid var(--line);
+    border-radius:4px 22px 4px 22px; overflow:hidden;
+    display:flex; flex-direction:column;
+    transition:transform 0.3s ease, border-color 0.3s ease;
+  }
+  .card:hover{ transform:translateY(-6px); border-color:var(--amethyst); }
+  .card .thumb{
+    height:170px; display:flex; align-items:center; justify-content:center;
+    background:radial-gradient(circle at 30% 20%, rgba(155,95,224,0.35), var(--bg-panel) 70%);
+  }
+  .card .thumb img{ max-height:120px; image-rendering:pixelated; filter:drop-shadow(0 8px 20px rgba(155,95,224,0.4)); }
+  .card .body{ padding:24px 22px 26px; display:flex; flex-direction:column; gap:10px; flex:1; }
+  .card h3{ font-size:1.25rem; }
+  .card p{ color:var(--text-lo); font-size:0.92rem; line-height:1.55; flex:1; }
+  .badges{ display:flex; gap:8px; flex-wrap:wrap; margin:4px 0; }
+  .badge{ font-size:0.7rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--gold); border:1px solid var(--line); padding:4px 10px; border-radius:100px; }
+  .btn-dl{
+    margin-top:10px; text-align:center; padding:12px 18px; border-radius:100px;
+    background:linear-gradient(135deg,var(--amethyst-bright),var(--amethyst));
+    color:#160f28; font-weight:800; font-size:0.9rem;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn-dl:hover{ transform:translateY(-2px); box-shadow:0 8px 30px rgba(202,160,255,0.4); }
+
+  .about{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:24px;
+    padding:40px; margin-top:20px;
+  }
+  .about p{ color:var(--text-lo); line-height:1.7; font-size:0.98rem; }
+  .about a{ color:var(--amethyst-bright); font-weight:700; }
+
+  footer{ padding:36px 6vw; text-align:center; color:var(--text-lo); font-size:0.85rem; border-top:1px solid var(--line); }
+  footer b{ color:var(--amethyst-bright); }
+
+  .empty-note{ color:var(--text-lo); font-size:0.85rem; margin-top:10px; }
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+
+<nav>
+  <div class="brand"><span class="gem"></span> AmilcarGit</div>
+  <span class="tag">Mods &amp; Skins de Minecraft Bedrock</span>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">Portafolio de creador</div>
+  <h1>Mods, add-ons<br>y skins</h1>
+  <p>Todo lo que voy creando para Minecraft Bedrock, disponible para descargar directamente desde aquí.</p>
+</div>
+
+<section id="mods">
+  <div class="section-head">
+    <div class="kicker">Add-ons</div>
+    <h2>Mods / Add-ons</h2>
+  </div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="thumb"><img src="assets/dimension-icon.png" alt="Dimensión de Cristal"></div>
+      <div class="body">
+        <h3>Dimensión de Cristal</h3>
+        <div class="badges">
+          <span class="badge">Nueva dimensión</span>
+          <span class="badge">Mobs únicos</span>
+          <span class="badge">Jefe</span>
+        </div>
+        <p>Una dimensión completa hecha de amatista: islas flotantes, portal por bloques, 4 criaturas propias, zonas temáticas y un jefe final con arena propia.</p>
+        <a class="btn-dl" href="downloads/Dimension_de_Cristal_AmilcarGit.mcaddon" download>Descargar .mcaddon</a>
+      </div>
+    </div>
+
+    <!--
+      Para agregar un nuevo mod, copia una tarjeta como esta y cambia:
+      - la imagen en assets/
+      - el título, badges y descripción
+      - el archivo dentro de downloads/ y el href
+    -->
+
+  </div>
+</section>
+
+<section id="skins">
+  <div class="section-head">
+    <div class="kicker">Skins</div>
+    <h2>Skins de personaje</h2>
+  </div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="thumb"><img src="downloads/Skin_Caballero_de_Cristal.png" alt="Skin Caballero de Cristal"></div>
+      <div class="body">
+        <h3>Caballero de Cristal</h3>
+        <div class="badges"><span class="badge">Formato clásico 64x64</span></div>
+        <p>Armadura plateada con gema de amatista y cabello plateado-violeta, a juego con la Dimensión de Cristal.</p>
+        <a class="btn-dl" href="downloads/Skin_Caballero_de_Cristal.png" download>Descargar skin (.png)</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="downloads/Max_alex_mejorada.png" alt="Max Alex mejorada"></div>
+      <div class="body">
+        <h3>Max Alex — Mejorada</h3>
+        <div class="badges"><span class="badge">Encapuchado</span><span class="badge">Formato clásico 64x64</span></div>
+        <p>Versión mejorada de una skin encapuchada oscura con detalles rojos, capa de capucha extra y chaqueta con solapas.</p>
+        <a class="btn-dl" href="downloads/Max_alex_mejorada.png" download>Descargar skin (.png)</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="about">
+  <div class="about">
+    <h2 style="margin-bottom:14px;">Sobre este sitio</h2>
+    <p>
+      Este es mi portafolio personal de creaciones para Minecraft Bedrock. Los archivos se descargan directo desde este mismo sitio (sin anuncios ni redirecciones).
+      También puedes encontrar mi contenido en <a href="https://mcpedl.com" target="_blank" rel="noopener">MCPEDL</a>.
+    </p>
+  </div>
+</section>
+
+<footer>
+  Hecho por <b>AmilcarGit</b> · Sitio no afiliado con Mojang ni Microsoft.
+</footer>
+
+</body>
+</html>
