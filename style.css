@@ -1,0 +1,381 @@
+/* ==========================================================
+   AMILCARGIT OFICIAL — identidad visual "documento oficial"
+   Paleta:
+     --ink        #0F1B2D  fondo principal (tinta / noche de archivo)
+     --paper      #E9E3D3  papel / secciones claras
+     --gold       #C9A227  sello dorado, acentos, líneas
+     --stamp-red  #A63A2E  tinta de sello / estados
+     --line       #1F2E44  líneas, bordes sobre fondo oscuro
+   Tipografía:
+     Display  → 'Big Shoulders Stencil' (títulos, sello)
+     Mono     → 'IBM Plex Mono' (datos, campos, códigos)
+     Body     → 'Inter' (texto de lectura)
+   ========================================================== */
+
+:root {
+  --ink: #0F1B2D;
+  --paper: #E9E3D3;
+  --paper-dim: #DCD5C1;
+  --gold: #C9A227;
+  --stamp-red: #A63A2E;
+  --line: #1F2E44;
+  --ink-soft: #223350;
+}
+
+* { box-sizing: border-box; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .stamp { animation: stampIn 0.9s cubic-bezier(.2,.9,.25,1.1) 0.3s both; }
+  .hero-title { animation: fadeUp 0.8s ease both; }
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+}
+
+@keyframes stampIn {
+  0% { opacity: 0; transform: rotate(-18deg) scale(1.4); }
+  60% { opacity: 1; }
+  100% { opacity: 0.92; transform: rotate(-9deg) scale(1); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  position: relative;
+  overflow-x: hidden;
+}
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  font-family: 'Big Shoulders Stencil', sans-serif;
+  font-size: 22vw;
+  font-weight: 900;
+  color: rgba(233, 227, 211, 0.025);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+  letter-spacing: 0.02em;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(15, 27, 45, 0.88);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.topbar-code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+.topbar-nav a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--paper-dim);
+  margin-left: 22px;
+  transition: color 0.2s ease;
+}
+.topbar-nav a:hover { color: var(--gold); }
+
+main { position: relative; z-index: 1; }
+
+.hero {
+  min-height: 82vh;
+  display: flex;
+  align-items: center;
+  padding: 60px 24px 40px;
+  border-bottom: 1px solid var(--line);
+}
+.hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+.hero-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 18px;
+}
+.hero-title {
+  font-family: 'Big Shoulders Stencil', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3.2rem, 13vw, 7.5rem);
+  letter-spacing: 0.02em;
+  margin: 0;
+  line-height: 0.95;
+  color: var(--paper);
+}
+.stamp {
+  width: 148px;
+  height: 148px;
+  margin: 6px auto 18px;
+  transform: rotate(-9deg);
+  opacity: 0.92;
+}
+.stamp-svg { width: 100%; height: 100%; }
+.stamp-ring-outer, .stamp-ring-inner {
+  fill: none;
+  stroke: var(--stamp-red);
+  stroke-width: 2.5;
+}
+.stamp-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  fill: var(--stamp-red);
+}
+.stamp-center {
+  font-family: 'Big Shoulders Stencil', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  fill: var(--stamp-red);
+  text-anchor: middle;
+}
+.hero-sub {
+  font-size: 15.5px;
+  color: var(--paper-dim);
+  max-width: 480px;
+  margin: 0 auto 30px;
+}
+.btn {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--gold);
+  padding: 12px 22px;
+  border-radius: 2px;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.btn:hover { background: #dcb43a; transform: translateY(-1px); }
+
+.section-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+  margin: 0 0 8px;
+  padding-top: 64px;
+}
+
+/* CREDENCIAL */
+.credencial { padding: 0 24px 70px; }
+.card {
+  max-width: 640px;
+  margin: 24px auto 0;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 6px;
+  border: 1px solid var(--gold);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+}
+.card-photo {
+  width: 120px;
+  height: 140px;
+  background: var(--paper-dim);
+  border: 1px dashed var(--ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-soft);
+  letter-spacing: 0.08em;
+}
+.card-name {
+  font-family: 'Big Shoulders Stencil', sans-serif;
+  font-size: 1.7rem;
+  margin: 0 0 12px;
+  letter-spacing: 0.01em;
+}
+.field-list {
+  margin: 0 0 16px;
+  display: grid;
+  gap: 6px;
+}
+.field-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  border-bottom: 1px dotted rgba(15,27,45,0.2);
+  padding: 4px 0;
+}
+.field-row dt { color: var(--ink-soft); margin: 0; }
+.field-row dd { margin: 0; font-weight: 500; }
+.badge {
+  background: var(--stamp-red);
+  color: var(--paper);
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+}
+.card-bio {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* AREAS */
+.areas { padding: 0 24px 70px; text-align: center; }
+.areas-note {
+  font-size: 13.5px;
+  color: var(--paper-dim);
+  margin: 0 auto 30px;
+}
+.stamps-grid {
+  max-width: 640px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.mini-stamp {
+  border: 1.5px dashed var(--gold);
+  border-radius: 50%;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  opacity: 0.85;
+}
+.mini-stamp-label {
+  font-family: 'Big Shoulders Stencil', sans-serif;
+  font-size: 15px;
+  color: var(--paper);
+}
+.mini-stamp-status {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+}
+
+/* CONTACTO */
+.contacto { padding: 0 24px 90px; }
+.contacto-box {
+  max-width: 560px;
+  margin: 24px auto 0;
+  background: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 28px;
+}
+.contacto-intro {
+  font-size: 14px;
+  color: var(--paper-dim);
+  margin: 0 0 18px;
+}
+.contact-list {
+  list-style: none;
+  margin: 0 0 26px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.contact-list li {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  border-bottom: 1px dotted rgba(233,227,211,0.2);
+  padding: 6px 0;
+}
+.contact-key { color: var(--gold); }
+.contact-val { text-decoration: none; }
+.contact-val:hover { color: var(--gold); }
+
+.contact-form { display: grid; gap: 14px; }
+.form-row { display: grid; gap: 5px; }
+.form-row label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+.form-row input, .form-row textarea {
+  background: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--paper);
+  padding: 10px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  resize: vertical;
+}
+.form-row input:focus, .form-row textarea:focus {
+  border-color: var(--gold);
+}
+.btn-form {
+  border: none;
+  cursor: pointer;
+  justify-self: start;
+}
+.form-note {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--gold);
+}
+
+.footer {
+  text-align: center;
+  padding: 26px 24px 34px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line);
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 560px) {
+  .card { grid-template-columns: 1fr; }
+  .card-photo { width: 100%; height: 110px; }
+  .stamps-grid { grid-template-columns: 1fr; }
+  .topbar-nav a { margin-left: 14px; font-size: 12px; }
+}
