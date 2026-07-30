@@ -1,5 +1,16 @@
 // AMILCARGIT OFICIAL — script del formulario de contacto (Formspree)
 
+const menuBtn = document.getElementById('menuBtn');
+const menuPanel = document.getElementById('menuPanel');
+
+if (menuBtn && menuPanel) {
+  menuBtn.addEventListener('click', () => {
+    const isOpen = !menuPanel.hidden;
+    menuPanel.hidden = isOpen;
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+  });
+}
+
 const form = document.getElementById('contactForm');
 const note = document.getElementById('formNote');
 
