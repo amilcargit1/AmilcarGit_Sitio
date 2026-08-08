@@ -41,6 +41,17 @@
 </head>
 <body>
 
+  <!-- pantalla de carga -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-stamp">
+      <svg viewBox="0 0 100 100" class="loading-stamp-svg">
+        <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="264" stroke-dashoffset="264" class="loading-ring"/>
+      </svg>
+      <span class="loading-icon" aria-hidden="true">📜</span>
+    </div>
+    <p class="loading-text">Sellando documento<span class="loading-dots">...</span></p>
+  </div>
+
   <!-- watermark de fondo -->
   <div class="watermark" aria-hidden="true">AMILCARGIT</div>
 
@@ -116,6 +127,7 @@
           a medida que el proyecto tome forma — por ahora, es la presentación oficial.
         </p>
         <a class="btn" href="#credencial">Ver credencial →</a>
+        <p class="mood-chip" id="moodChip"></p>
       </div>
     </section>
 
@@ -123,6 +135,10 @@
     <section class="credencial reveal" id="credencial">
       <p class="section-label">Sobre mí</p>
       <div class="card">
+        <span class="washi-tape washi-tape-1" aria-hidden="true"></span>
+        <span class="washi-tape washi-tape-2" aria-hidden="true"></span>
+        <span class="sticker sticker-1" aria-hidden="true">🦋</span>
+        <span class="sticker sticker-2" aria-hidden="true">✨</span>
         <div class="card-photo">
           <img src="images/avatar.jpg" alt="AMILCARGIT OFICIAL" class="card-photo-img" width="640" height="640" loading="lazy" decoding="async">
         </div>
@@ -218,6 +234,8 @@
       </div>
     </section>
   </main>
+
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
   <footer class="footer">
     <p>AMILCARGIT OFICIAL — Documento generado en 2026. Todos los datos son provisorios hasta su validación final.</p>
