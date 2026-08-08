@@ -848,3 +848,30 @@ main { position: relative; z-index: 1; }
 @keyframes confettiFall {
   to { top: 105vh; opacity: 0.3; transform: translateY(0) rotate(540deg); }
 }
+
+/* ===== BOTÓN COMPARTIR ===== */
+.btn-share {
+  display: block;
+  text-align: center;
+  margin: 6px 0 24px;
+  background: #25D366;
+  color: #0a2e1a;
+}
+.btn-share:hover { background: #2fe377; }
+
+/* ===== CASCADA AL ABRIR CADA CATEGORÍA DEL MENÚ ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .menu-group-list:not([hidden]) li {
+    animation: menuCascade 0.32s ease both;
+  }
+  .menu-group-list:not([hidden]) li:nth-child(1) { animation-delay: 0.02s; }
+  .menu-group-list:not([hidden]) li:nth-child(2) { animation-delay: 0.08s; }
+  .menu-group-list:not([hidden]) li:nth-child(3) { animation-delay: 0.14s; }
+  .menu-group-list:not([hidden]) li:nth-child(4) { animation-delay: 0.20s; }
+  .menu-group-list:not([hidden]) li:nth-child(5) { animation-delay: 0.26s; }
+  .menu-group-list:not([hidden]) li:nth-child(n+6) { animation-delay: 0.32s; }
+}
+@keyframes menuCascade {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
