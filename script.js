@@ -84,12 +84,24 @@ const audioPrev = document.getElementById('audioPrev');
 const audioNext = document.getElementById('audioNext');
 const audioPlayer = document.getElementById('audioPlayer');
 const audioIcon = audioToggle ? audioToggle.querySelector('.audio-icon') : null;
+const audioTrackName = document.getElementById('audioTrackName');
+const audioVolume = document.getElementById('audioVolume');
 let trackIndex = 0;
 let audioUnlocked = false;
+let trackNameTimer = null;
 
 function loadTrack(i) {
   if (!bgAudio || !playlist.length) return;
   bgAudio.src = playlist[i].src;
+  showTrackName(playlist[i].title);
+}
+
+function showTrackName(title) {
+  if (!audioTrackName) return;
+  audioTrackName.textContent = title;
+  audioTrackName.classList.add('is-visible');
+  clearTimeout(trackNameTimer);
+  trackNameTimer = setTimeout(() => audioTrackName.classList.remove('is-visible'), 3500);
 }
 
 function setPlayingUI(isPlaying) {
@@ -102,7 +114,7 @@ function setPlayingUI(isPlaying) {
 
 function playCurrentTrack() {
   bgAudio.muted = false;
-  bgAudio.volume = 0.35;
+  bgAudio.volume = audioVolume ? Number(audioVolume.value) / 100 : 0.35;
   bgAudio.play().catch(() => {});
   audioUnlocked = true;
   setPlayingUI(true);
@@ -124,6 +136,7 @@ function playPrevTrack() {
 
 if (bgAudio && audioToggle && playlist.length) {
   loadTrack(trackIndex);
+  if (audioTrackName) audioTrackName.classList.remove('is-visible'); // no mostrar el nombre hasta que el usuario active el sonido
   bgAudio.volume = 0;
   bgAudio.muted = true;
   bgAudio.addEventListener('ended', playNextTrack);
@@ -134,6 +147,7 @@ if (bgAudio && audioToggle && playlist.length) {
   audioToggle.addEventListener('click', () => {
     if (!audioUnlocked) {
       playCurrentTrack();
+      showTrackName(playlist[trackIndex].title);
     } else if (bgAudio.paused) {
       bgAudio.play().catch(() => {});
       setPlayingUI(true);
@@ -145,7 +159,54 @@ if (bgAudio && audioToggle && playlist.length) {
 
   if (audioPrev) audioPrev.addEventListener('click', playPrevTrack);
   if (audioNext) audioNext.addEventListener('click', playNextTrack);
+  if (audioVolume) {
+    audioVolume.addEventListener('input', () => {
+      bgAudio.volume = Number(audioVolume.value) / 100;
+    });
+  }
 } else if (audioPlayer) {
   // Sin audios cargados todavía: ocultar el reproductor
   audioPlayer.style.display = 'none';
+}
+
+// ===== MODO OSCURO / CLARO =====
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('amilcargit-theme');
+if (savedTheme === 'light') {
+  document.documentElement.setAttribute('data-theme', 'light');
+}
+function updateThemeButton() {
+  if (!themeToggle) return;
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  themeToggle.querySelector('span').textContent = isLight ? '🌙' : '☀️';
+  themeToggle.setAttribute('aria-label', isLight ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
+}
+updateThemeButton();
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('amilcargit-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('amilcargit-theme', 'light');
+    }
+    updateThemeButton();
+  });
+}
+
+// ===== CONTADOR DE VISITAS =====
+// Usa CountAPI (countapi.xyz), un servicio gratuito sin necesidad de backend propio.
+const visitorCountEl = document.getElementById('visitorCount');
+if (visitorCountEl) {
+  fetch('https://api.countapi.xyz/hit/amilcargit-oficial/visitas')
+    .then((res) => res.json())
+    .then((data) => {
+      visitorCountEl.textContent = String(data.value).padStart(6, '0');
+    })
+    .catch(() => {
+      const counter = document.getElementById('visitorCounter');
+      if (counter) counter.style.display = 'none';
+    });
 }
