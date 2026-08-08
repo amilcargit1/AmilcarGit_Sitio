@@ -11,6 +11,17 @@ if (menuBtn && menuPanel) {
   });
 }
 
+// Acordeón: cada categoría (Grupos WhatsApp, Bots, GitHub) se abre independiente
+document.querySelectorAll('.menu-group-btn').forEach((btn) => {
+  const list = document.getElementById(btn.getAttribute('aria-controls'));
+  if (!list) return;
+  btn.addEventListener('click', () => {
+    const isOpen = !list.hidden;
+    list.hidden = isOpen;
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+});
+
 const form = document.getElementById('contactForm');
 const note = document.getElementById('formNote');
 
