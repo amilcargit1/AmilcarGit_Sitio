@@ -20,6 +20,8 @@
   --stamp-red: #A63A2E;
   --line: #1F2E44;
   --ink-soft: #223350;
+  --neon-cyan: #2DE2E6;
+  --neon-magenta: #FF2E9A;
   /* tokens que sí cambian con el tema (fondo/texto de página) */
   --page-bg: var(--ink);
   --fg: var(--paper);
@@ -37,7 +39,6 @@
 * { box-sizing: border-box; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .stamp { animation: stampIn 0.9s cubic-bezier(.2,.9,.25,1.1) 0.3s both; }
   .hero-title { animation: fadeUp 0.8s ease both; }
   .hero-eyebrow { animation: fadeUp 0.6s ease both; }
 }
@@ -165,7 +166,7 @@ a { color: inherit; }
   text-decoration: none;
   color: var(--fg-dim);
 }
-.menu-group-list a:hover { color: var(--gold); }
+.menu-group-list a:hover { color: var(--gold); text-shadow: 0 0 8px rgba(45,226,230,0.5); }
 .menu-group-sublabel {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
@@ -189,7 +190,7 @@ a { color: inherit; }
   margin-left: 22px;
   transition: color 0.2s ease;
 }
-.topbar-nav a:hover { color: var(--gold); }
+.topbar-nav a:hover { color: var(--gold); text-shadow: 0 0 8px rgba(45,226,230,0.5); }
 
 main { position: relative; z-index: 1; }
 
@@ -230,6 +231,13 @@ main { position: relative; z-index: 1; }
   transform: rotate(-9deg);
   opacity: 0.92;
 }
+@media (prefers-reduced-motion: no-preference) {
+  .stamp { animation: stampIn 0.9s cubic-bezier(.2,.9,.25,1.1) 0.3s both, stampGlow 3.4s ease-in-out 1.2s infinite; }
+}
+@keyframes stampGlow {
+  0%, 100% { filter: drop-shadow(0 0 5px rgba(45,226,230,0.45)); }
+  50% { filter: drop-shadow(0 0 9px rgba(255,46,154,0.5)); }
+}
 .stamp-svg { width: 100%; height: 100%; }
 .stamp-ring-outer, .stamp-ring-inner {
   fill: none;
@@ -265,9 +273,13 @@ main { position: relative; z-index: 1; }
   background: var(--gold);
   padding: 12px 22px;
   border-radius: 2px;
-  transition: transform 0.15s ease, background 0.15s ease;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.2s ease;
 }
-.btn:hover { background: #dcb43a; transform: translateY(-1px); }
+.btn:hover {
+  background: #dcb43a;
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px rgba(45,226,230,0.4), 0 0 18px rgba(255,46,154,0.35);
+}
 
 .section-label {
   font-family: 'IBM Plex Mono', monospace;
@@ -294,6 +306,10 @@ main { position: relative; z-index: 1; }
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 24px;
+  transition: box-shadow 0.35s ease;
+}
+.card:hover {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35), 0 0 0 1px rgba(45,226,230,0.3), 0 0 26px rgba(255,46,154,0.22);
 }
 .card-photo {
   width: 120px;
@@ -407,7 +423,7 @@ main { position: relative; z-index: 1; }
   padding: 2px 6px;
   border-bottom: 1px solid transparent;
 }
-.mini-stamp-link:hover { border-bottom-color: var(--gold); }
+.mini-stamp-link:hover { border-bottom-color: var(--gold); text-shadow: 0 0 8px rgba(255,46,154,0.5); }
 
 /* CONTACTO */
 .contacto { padding: 0 24px 90px; }
@@ -441,7 +457,7 @@ main { position: relative; z-index: 1; }
 }
 .contact-key { color: var(--gold); }
 .contact-val { text-decoration: none; }
-.contact-val:hover { color: var(--gold); }
+.contact-val:hover { color: var(--gold); text-shadow: 0 0 8px rgba(255,46,154,0.45); }
 
 .contact-form { display: grid; gap: 14px; }
 .form-row { display: grid; gap: 5px; }
@@ -463,6 +479,8 @@ main { position: relative; z-index: 1; }
 }
 .form-row input:focus, .form-row textarea:focus {
   border-color: var(--gold);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(45,226,230,0.18);
 }
 .btn-form {
   border: none;
@@ -627,12 +645,18 @@ main { position: relative; z-index: 1; }
 .audio-toggle:hover { background: var(--ink-soft); transform: translateY(-1px); }
 .audio-toggle.is-playing { color: #dcb43a; }
 .audio-toggle.is-playing .audio-icon { animation: pulseAudio 1.6s ease-in-out infinite; }
+.audio-player:has(.audio-toggle.is-playing) { animation: pulseGlow 2.6s ease-in-out infinite; }
 @keyframes pulseAudio {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.55; }
 }
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(45,226,230,0.4); }
+  50% { box-shadow: 0 0 14px rgba(255,46,154,0.45); }
+}
 @media (prefers-reduced-motion: reduce) {
   .audio-toggle.is-playing .audio-icon { animation: none; }
+  .audio-player:has(.audio-toggle.is-playing) { animation: none; }
 }
 .audio-volume {
   width: 60px;
