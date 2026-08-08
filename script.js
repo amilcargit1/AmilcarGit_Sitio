@@ -73,10 +73,16 @@ if (toTop) {
 // { title: 'Nombre', src: 'audio/archivo.mp3' }  ó una URL externa
 const playlist = [
   { title: 'Presentación', src: 'audio/AUD-20260517-WA0021.mp3' },
+  { title: 'Corazón Serrano Mix Poco Yo', src: 'audio/Corazón Serrano Mix Poco Yo.mp3' },
+  { title: 'Que me está pasando', src: 'audio/Que me está pasando.mp3' },
+  { title: 'Golaso', src: 'audio/Golaso.mp3' },
 ];
 
 const bgAudio = document.getElementById('bgAudio');
 const audioToggle = document.getElementById('audioToggle');
+const audioPrev = document.getElementById('audioPrev');
+const audioNext = document.getElementById('audioNext');
+const audioPlayer = document.getElementById('audioPlayer');
 const audioIcon = audioToggle ? audioToggle.querySelector('.audio-icon') : null;
 let trackIndex = 0;
 let audioUnlocked = false;
@@ -86,11 +92,34 @@ function loadTrack(i) {
   bgAudio.src = playlist[i].src;
 }
 
+function setPlayingUI(isPlaying) {
+  if (!audioToggle || !audioIcon) return;
+  audioToggle.classList.toggle('is-playing', isPlaying);
+  audioToggle.setAttribute('aria-label', isPlaying ? 'Silenciar audio' : 'Reproducir audio');
+  audioToggle.setAttribute('aria-pressed', String(isPlaying));
+  audioIcon.textContent = isPlaying ? '🔊' : '🔇';
+}
+
+function playCurrentTrack() {
+  bgAudio.muted = false;
+  bgAudio.volume = 0.35;
+  bgAudio.play().catch(() => {});
+  audioUnlocked = true;
+  setPlayingUI(true);
+}
+
 function playNextTrack() {
   if (!playlist.length) return;
   trackIndex = (trackIndex + 1) % playlist.length;
   loadTrack(trackIndex);
-  bgAudio.play().catch(() => {});
+  if (audioUnlocked) playCurrentTrack();
+}
+
+function playPrevTrack() {
+  if (!playlist.length) return;
+  trackIndex = (trackIndex - 1 + playlist.length) % playlist.length;
+  loadTrack(trackIndex);
+  if (audioUnlocked) playCurrentTrack();
 }
 
 if (bgAudio && audioToggle && playlist.length) {
@@ -104,27 +133,19 @@ if (bgAudio && audioToggle && playlist.length) {
 
   audioToggle.addEventListener('click', () => {
     if (!audioUnlocked) {
-      bgAudio.muted = false;
-      bgAudio.volume = 0.35;
-      bgAudio.play().catch(() => {});
-      audioUnlocked = true;
-      audioToggle.classList.add('is-playing');
-      audioToggle.setAttribute('aria-pressed', 'true');
-      audioToggle.setAttribute('aria-label', 'Silenciar audio');
-      audioIcon.textContent = '🔊';
+      playCurrentTrack();
     } else if (bgAudio.paused) {
       bgAudio.play().catch(() => {});
-      audioToggle.classList.add('is-playing');
-      audioToggle.setAttribute('aria-label', 'Silenciar audio');
-      audioIcon.textContent = '🔊';
+      setPlayingUI(true);
     } else {
       bgAudio.pause();
-      audioToggle.classList.remove('is-playing');
-      audioToggle.setAttribute('aria-label', 'Reproducir audio');
-      audioIcon.textContent = '🔇';
+      setPlayingUI(false);
     }
   });
-} else if (audioToggle) {
-  // Sin audios cargados todavía: ocultar el botón
-  audioToggle.style.display = 'none';
+
+  if (audioPrev) audioPrev.addEventListener('click', playPrevTrack);
+  if (audioNext) audioNext.addEventListener('click', playNextTrack);
+} else if (audioPlayer) {
+  // Sin audios cargados todavía: ocultar el reproductor
+  audioPlayer.style.display = 'none';
 }
