@@ -67,3 +67,64 @@ if (toTop) {
     toTop.classList.toggle('is-visible', window.scrollY > 500);
   }, { passive: true });
 }
+
+// ===== REPRODUCTOR DE AUDIO =====
+// Para sumar audios nuevos, solo agregá un objeto acá:
+// { title: 'Nombre', src: 'audio/archivo.mp3' }  ó una URL externa
+const playlist = [
+  // { title: 'Presentación', src: 'audio/presentacion.mp3' },
+];
+
+const bgAudio = document.getElementById('bgAudio');
+const audioToggle = document.getElementById('audioToggle');
+const audioIcon = audioToggle ? audioToggle.querySelector('.audio-icon') : null;
+let trackIndex = 0;
+let audioUnlocked = false;
+
+function loadTrack(i) {
+  if (!bgAudio || !playlist.length) return;
+  bgAudio.src = playlist[i].src;
+}
+
+function playNextTrack() {
+  if (!playlist.length) return;
+  trackIndex = (trackIndex + 1) % playlist.length;
+  loadTrack(trackIndex);
+  bgAudio.play().catch(() => {});
+}
+
+if (bgAudio && audioToggle && playlist.length) {
+  loadTrack(trackIndex);
+  bgAudio.volume = 0;
+  bgAudio.muted = true;
+  bgAudio.addEventListener('ended', playNextTrack);
+
+  // Intento de autoplay silencioso al cargar la página
+  bgAudio.play().catch(() => { /* el navegador lo bloqueó, se activa con el botón */ });
+
+  audioToggle.addEventListener('click', () => {
+    if (!audioUnlocked) {
+      bgAudio.muted = false;
+      bgAudio.volume = 0.35;
+      bgAudio.play().catch(() => {});
+      audioUnlocked = true;
+      audioToggle.classList.add('is-playing');
+      audioToggle.setAttribute('aria-pressed', 'true');
+      audioToggle.setAttribute('aria-label', 'Silenciar audio');
+      audioIcon.textContent = '🔊';
+    } else if (bgAudio.paused) {
+      bgAudio.play().catch(() => {});
+      audioToggle.classList.add('is-playing');
+      audioToggle.setAttribute('aria-label', 'Silenciar audio');
+      audioIcon.textContent = '🔊';
+    } else {
+      bgAudio.pause();
+      audioToggle.classList.remove('is-playing');
+      audioToggle.setAttribute('aria-label', 'Reproducir audio');
+      audioIcon.textContent = '🔇';
+    }
+  });
+} else if (audioToggle) {
+  // Sin audios cargados todavía: ocultar el botón
+  audioToggle.style.display = 'none';
+}
