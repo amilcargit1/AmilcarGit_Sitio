@@ -5,10 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AMILCARGIT OFICIAL</title>
 <meta name="description" content="AMILCARGIT OFICIAL — identidad en construcción.">
+<meta name="theme-color" content="#0F1B2D">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+<!-- Open Graph / redes sociales -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="AMILCARGIT OFICIAL">
+<meta property="og:description" content="AMILCARGIT OFICIAL — identidad en construcción.">
+<meta property="og:image" content="https://amilcargit-sitio-ak9u.onrender.com/images/avatar.jpg">
+<meta property="og:url" content="https://amilcargit-sitio-ak9u.onrender.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AMILCARGIT OFICIAL">
+<meta name="twitter:description" content="AMILCARGIT OFICIAL — identidad en construcción.">
+<meta name="twitter:image" content="https://amilcargit-sitio-ak9u.onrender.com/images/avatar.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil:wght@500;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "AMILCARGIT",
+  "jobTitle": "Desarrollador y creador de contenido",
+  "address": { "@type": "PostalAddress", "addressLocality": "Marcabal Grande", "addressCountry": "PE" },
+  "email": "mailto:amilcargit@gmail.com",
+  "sameAs": [
+    "https://www.instagram.com/amilkar.51",
+    "https://wa.me/51910227479"
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -68,7 +97,7 @@
       <p class="section-label">Sobre mí</p>
       <div class="card">
         <div class="card-photo">
-          <img src="images/avatar.jpg" alt="AMILCARGIT OFICIAL" class="card-photo-img">
+          <img src="images/avatar.jpg" alt="AMILCARGIT OFICIAL" class="card-photo-img" width="640" height="640" loading="lazy" decoding="async">
         </div>
         <div class="card-fields">
           <h2 class="card-name">AMILCARGIT OFICIAL</h2>
@@ -157,7 +186,7 @@
             <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
           </div>
           <button type="submit" class="btn btn-form">Enviar solicitud</button>
-          <p class="form-note" id="formNote" hidden>Formulario enviado. Gracias por escribir.</p>
+          <p class="form-note" id="formNote" role="status" aria-live="polite" hidden>Formulario enviado. Gracias por escribir.</p>
         </form>
       </div>
     </section>
