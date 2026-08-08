@@ -43,3 +43,27 @@ if (form) {
     }
   });
 }
+
+// Scroll reveal para secciones
+const revealEls = document.querySelectorAll('.reveal');
+if (revealEls.length && 'IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach((el) => revealObserver.observe(el));
+} else {
+  revealEls.forEach((el) => el.classList.add('is-visible'));
+}
+
+// Botón volver arriba
+const toTop = document.querySelector('.to-top');
+if (toTop) {
+  window.addEventListener('scroll', () => {
+    toTop.classList.toggle('is-visible', window.scrollY > 500);
+  }, { passive: true });
+}
