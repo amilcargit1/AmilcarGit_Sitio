@@ -52,16 +52,43 @@
         <a href="#areas">Áreas</a>
         <a href="#contacto">Contacto</a>
       </nav>
-      <button class="menu-btn" id="menuBtn" aria-label="Abrir grupos de WhatsApp" aria-expanded="false">
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú de enlaces" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
     <div class="menu-panel" id="menuPanel" hidden>
-      <p class="menu-panel-label">Grupos de WhatsApp</p>
-      <ul class="menu-panel-list">
-        <li><a href="https://chat.whatsapp.com/DtKYjbKslEzLXKVBE4ymHM?s=cl&p=a&ilr=0&amv=2" target="_blank" rel="noopener">TheYui-MD 🦋</a></li>
-        <li><a href="https://chat.whatsapp.com/BVATXIyPTw79MkLUrcXsjJ?s=cl&p=a&ilr=0&amv=2" target="_blank" rel="noopener">TheYui-MD 🌸🐱 Grupo oficial</a></li>
-      </ul>
+
+      <div class="menu-group">
+        <button type="button" class="menu-group-btn" aria-expanded="false" aria-controls="menuGroupWpp">
+          <span>💬 Grupos de WhatsApp</span><span class="menu-caret" aria-hidden="true">▾</span>
+        </button>
+        <ul class="menu-group-list" id="menuGroupWpp" hidden>
+          <li><a href="https://chat.whatsapp.com/DtKYjbKslEzLXKVBE4ymHM?s=cl&p=a&ilr=0&amv=2" target="_blank" rel="noopener">TheYui-MD 🦋</a></li>
+          <li><a href="https://chat.whatsapp.com/BVATXIyPTw79MkLUrcXsjJ?s=cl&p=a&ilr=0&amv=2" target="_blank" rel="noopener">TheYui-MD 🌸🐱 Grupo oficial</a></li>
+        </ul>
+      </div>
+
+      <div class="menu-group">
+        <button type="button" class="menu-group-btn" aria-expanded="false" aria-controls="menuGroupBots">
+          <span>🤖 Bots de WhatsApp</span><span class="menu-caret" aria-hidden="true">▾</span>
+        </button>
+        <ul class="menu-group-list" id="menuGroupBots" hidden>
+          <li><a href="https://github.com/AmilcarGit/TheYui-MD" target="_blank" rel="noopener">TheYui-MD — código fuente</a></li>
+        </ul>
+      </div>
+
+      <div class="menu-group">
+        <button type="button" class="menu-group-btn" aria-expanded="false" aria-controls="menuGroupGithub">
+          <span>🗂️ GitHub</span><span class="menu-caret" aria-hidden="true">▾</span>
+        </button>
+        <ul class="menu-group-list" id="menuGroupGithub" hidden>
+          <li class="menu-group-sublabel">Bots</li>
+          <li><a href="https://github.com/AmilcarGit/TheYui-MD" target="_blank" rel="noopener">TheYui-MD</a></li>
+          <li class="menu-group-sublabel">Sitios web</li>
+          <li><a href="https://github.com/amilcargit1/AmilcarGit_Sitio" target="_blank" rel="noopener">AmilcarGit_Sitio</a></li>
+        </ul>
+      </div>
+
     </div>
   </header>
 
