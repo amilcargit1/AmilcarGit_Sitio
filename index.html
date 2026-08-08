@@ -198,9 +198,13 @@
 
   <a href="#inicio" class="to-top" aria-label="Volver arriba">↑</a>
 
-  <button type="button" class="audio-toggle" id="audioToggle" aria-label="Activar sonido" aria-pressed="false">
-    <span class="audio-icon" aria-hidden="true">🔇</span>
-  </button>
+  <div class="audio-player" id="audioPlayer">
+    <button type="button" class="audio-btn audio-prev" id="audioPrev" aria-label="Canción anterior">⏪</button>
+    <button type="button" class="audio-toggle" id="audioToggle" aria-label="Activar sonido" aria-pressed="false">
+      <span class="audio-icon" aria-hidden="true">🔇</span>
+    </button>
+    <button type="button" class="audio-btn audio-next" id="audioNext" aria-label="Canción siguiente">⏩</button>
+  </div>
   <audio id="bgAudio" preload="none"></audio>
 
   <script src="script.js"></script>
