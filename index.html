@@ -21,7 +21,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil:wght@500;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil:wght@700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
 <script type="application/ld+json">
@@ -93,7 +93,7 @@
     </section>
 
     <!-- CREDENCIAL / SOBRE MÍ -->
-    <section class="credencial" id="credencial">
+    <section class="credencial reveal" id="credencial">
       <p class="section-label">Sobre mí</p>
       <div class="card">
         <div class="card-photo">
@@ -127,9 +127,9 @@
     </section>
 
     <!-- ÁREAS -->
-    <section class="areas" id="areas">
+    <section class="areas reveal" id="areas">
       <p class="section-label">Áreas registradas</p>
-      <p class="areas-note">Todavía en trámite — se van a ir habilitando con el tiempo.</p>
+      <p class="areas-note">Se van a ir habilitando con el tiempo — la primera ya está en trámite ✅</p>
       <div class="stamps-grid">
         <div class="mini-stamp">
           <span class="mini-stamp-icon" aria-hidden="true">🎬</span>
@@ -141,16 +141,16 @@
           <span class="mini-stamp-label">Servicios</span>
           <span class="mini-stamp-status">próximamente</span>
         </div>
-        <div class="mini-stamp">
+        <div class="mini-stamp mini-stamp-active">
           <span class="mini-stamp-icon" aria-hidden="true">📁</span>
           <span class="mini-stamp-label">Proyectos</span>
-          <span class="mini-stamp-status">próximamente</span>
+          <a href="https://github.com/AmilcarGit/TheYui-MD" target="_blank" rel="noopener" class="mini-stamp-link">TheYui-MD →</a>
         </div>
       </div>
     </section>
 
     <!-- CONTACTO -->
-    <section class="contacto" id="contacto">
+    <section class="contacto reveal" id="contacto">
       <p class="section-label">Solicitud de contacto</p>
       <div class="contacto-box">
         <p class="contacto-intro">
@@ -195,6 +195,8 @@
   <footer class="footer">
     <p>AMILCARGIT OFICIAL — Documento generado en 2026. Todos los datos son provisorios hasta su validación final.</p>
   </footer>
+
+  <a href="#inicio" class="to-top" aria-label="Volver arriba">↑</a>
 
   <script src="script.js"></script>
 </body>
