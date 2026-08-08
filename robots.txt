@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amilcargit-sitio-ak9u.onrender.com/sitemap.xml
