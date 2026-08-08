@@ -125,9 +125,9 @@ a { color: inherit; }
   margin: 0 auto;
   padding: 10px 24px 20px;
   border-top: 1px dashed var(--line);
-  display: grid;
   gap: 4px;
 }
+.menu-panel:not([hidden]) { display: grid; }
 .menu-group { border-bottom: 1px dotted var(--line); }
 .menu-group:last-child { border-bottom: none; }
 .menu-group-btn {
@@ -156,9 +156,9 @@ a { color: inherit; }
   list-style: none;
   margin: 0;
   padding: 2px 0 12px 6px;
-  display: grid;
   gap: 8px;
 }
+.menu-group-list:not([hidden]) { display: grid; }
 .menu-group-list a {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 13px;
