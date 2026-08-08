@@ -352,6 +352,22 @@ main { position: relative; z-index: 1; }
   letter-spacing: 0.05em;
   color: var(--gold);
 }
+.mini-stamp-active {
+  border-style: solid;
+  opacity: 1;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.mini-stamp-active:hover { transform: translateY(-2px); border-color: #dcb43a; }
+.mini-stamp-link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.03em;
+  color: var(--gold);
+  text-decoration: none;
+  padding: 2px 6px;
+  border-bottom: 1px solid transparent;
+}
+.mini-stamp-link:hover { border-bottom-color: var(--gold); }
 
 /* CONTACTO */
 .contacto { padding: 0 24px 90px; }
@@ -444,3 +460,45 @@ main { position: relative; z-index: 1; }
   .stamps-grid { grid-template-columns: 1fr 1fr; }
   .mini-stamp:last-child { grid-column: 1 / -1; max-width: 140px; margin: 0 auto; }
 }
+
+/* SCROLL REVEAL */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* VOLVER ARRIBA */
+.to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  background: var(--ink);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 18px;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+.to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.to-top:hover { background: var(--ink-soft); }
