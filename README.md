@@ -46,3 +46,19 @@ index.html   → toda la estructura y el contenido
 style.css    → identidad visual (paleta, tipografía, layout)
 script.js    → envío del formulario de contacto
 ```
+
+# Carpeta de audios
+
+Subí acá tus archivos `.mp3` (o el enlace externo que prefieras) y agregalos
+a la lista `playlist` en `script.js`:
+
+```js
+const playlist = [
+  { title: 'Presentación', src: 'audio/presentacion.mp3' },
+  { title: 'Otro audio',   src: 'https://enlace-externo.com/audio.mp3' },
+];
+```
+
+El botón flotante 🔇 se muestra solo automáticamente cuando hay al menos un
+audio en la lista.
+
