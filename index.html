@@ -194,16 +194,23 @@
 
   <footer class="footer">
     <p>AMILCARGIT OFICIAL — Documento generado en 2026. Todos los datos son provisorios hasta su validación final.</p>
+    <p class="visitor-counter" id="visitorCounter">Visitante N° <span id="visitorCount">······</span></p>
   </footer>
 
   <a href="#inicio" class="to-top" aria-label="Volver arriba">↑</a>
 
+  <button type="button" class="theme-toggle" id="themeToggle" aria-label="Cambiar a modo claro">
+    <span aria-hidden="true">☀️</span>
+  </button>
+
   <div class="audio-player" id="audioPlayer">
+    <span class="audio-track-name" id="audioTrackName" aria-live="polite"></span>
     <button type="button" class="audio-btn audio-prev" id="audioPrev" aria-label="Canción anterior">⏪</button>
     <button type="button" class="audio-toggle" id="audioToggle" aria-label="Activar sonido" aria-pressed="false">
       <span class="audio-icon" aria-hidden="true">🔇</span>
     </button>
     <button type="button" class="audio-btn audio-next" id="audioNext" aria-label="Canción siguiente">⏩</button>
+    <input type="range" class="audio-volume" id="audioVolume" min="0" max="100" value="35" aria-label="Volumen">
   </div>
   <audio id="bgAudio" preload="none"></audio>
 
