@@ -44,6 +44,7 @@ if (form) {
         form.reset();
         note.hidden = false;
         submitBtn.textContent = 'Enviado ✓';
+        launchConfetti();
       } else {
         submitBtn.textContent = 'Reintentar envío';
       }
@@ -226,4 +227,52 @@ if (visitorCountEl) {
       const counter = document.getElementById('visitorCounter');
       if (counter) counter.style.display = 'none';
     });
+}
+
+// ===== PANTALLA DE CARGA =====
+window.addEventListener('load', () => {
+  const loadingScreen = document.getElementById('loadingScreen');
+  if (!loadingScreen) return;
+  setTimeout(() => loadingScreen.classList.add('is-hidden'), 700);
+});
+
+// ===== FRASE CON PERSONALIDAD (cambia cada visita) =====
+const moodPhrases = [
+  '📡 Estado: en línea y de buen humor',
+  '🦋 Hoy con ganas de crear cosas nuevas',
+  '☕ Documento redactado con café de por medio',
+  '🎧 Sonando algo de fondo, no seas tímido y activá el audio',
+  '🐱 Aprobado por un gato que pasaba por ahí',
+  '🔧 En constante actualización, como todo lo bueno',
+];
+const moodChip = document.getElementById('moodChip');
+if (moodChip) {
+  moodChip.textContent = moodPhrases[Math.floor(Math.random() * moodPhrases.length)];
+}
+
+// ===== CURSOR CON LUZ (solo compu) =====
+const cursorGlow = document.getElementById('cursorGlow');
+if (cursorGlow && window.matchMedia('(hover: hover) and (pointer: fine)').matches
+    && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  window.addEventListener('mousemove', (e) => {
+    cursorGlow.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+  }, { passive: true });
+}
+
+// ===== CONFETI AL ENVIAR EL FORMULARIO =====
+function launchConfetti() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const colors = ['#2E6BFF', '#FF3B3B', '#C9A227'];
+  const count = 40;
+  for (let i = 0; i < count; i++) {
+    const piece = document.createElement('span');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + 'vw';
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.animationDuration = (2 + Math.random() * 1.5) + 's';
+    piece.style.animationDelay = (Math.random() * 0.3) + 's';
+    piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+    document.body.appendChild(piece);
+    piece.addEventListener('animationend', () => piece.remove());
+  }
 }
