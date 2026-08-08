@@ -87,6 +87,12 @@ const playlist = [
   { title: 'Corazón Serrano Mix Poco Yo', src: 'audio/Corazón Serrano Mix Poco Yo.mp3' },
   { title: 'Que me está pasando', src: 'audio/Que me está pasando.mp3' },
   { title: 'Golaso', src: 'audio/Golaso.mp3' },
+  { title: 'Corazón De Seda', src: 'audio/Corazon De Seda (MP3_160K).mp3' },
+  { title: 'Bandido', src: 'audio/Bandido(MP3_160K).mp3' },
+  { title: 'Ay Vamos', src: 'audio/Ay Vamos(MP3_160K).mp3' },
+  { title: 'Cuando Florezca el Amor', src: 'audio/Cuando Florezca el Amor(MP3_160K).mp3' },
+  { title: 'Qué Pasó', src: 'audio/Qué Pasó(MP3_160K).mp3' },
+  { title: 'Sigues Con Él (Remix)', src: 'audio/Sigues Con Él (Remix) (MP3_160K).mp3' },
 ];
 
 const bgAudio = document.getElementById('bgAudio');
