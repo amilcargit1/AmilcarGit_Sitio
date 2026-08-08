@@ -72,7 +72,7 @@ if (toTop) {
 // Para sumar audios nuevos, solo agregá un objeto acá:
 // { title: 'Nombre', src: 'audio/archivo.mp3' }  ó una URL externa
 const playlist = [
-  // { title: 'Presentación', src: 'audio/presentacion.mp3' },
+  { title: 'Presentación', src: 'audio/AUD-20260517-WA0021.mp3' },
 ];
 
 const bgAudio = document.getElementById('bgAudio');
