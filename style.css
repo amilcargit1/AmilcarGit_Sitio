@@ -20,6 +20,18 @@
   --stamp-red: #A63A2E;
   --line: #1F2E44;
   --ink-soft: #223350;
+  /* tokens que sí cambian con el tema (fondo/texto de página) */
+  --page-bg: var(--ink);
+  --fg: var(--paper);
+  --fg-dim: var(--paper-dim);
+  --header-bg: rgba(15, 27, 45, 0.88);
+}
+
+[data-theme="light"] {
+  --page-bg: #F4F1E6;
+  --fg: #16233A;
+  --fg-dim: #4E5C72;
+  --header-bg: rgba(244, 241, 230, 0.9);
 }
 
 * { box-sizing: border-box; }
@@ -44,12 +56,13 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--page-bg);
+  color: var(--fg);
   font-family: 'Inter', sans-serif;
   line-height: 1.5;
   position: relative;
   overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 a { color: inherit; }
@@ -78,7 +91,7 @@ a { color: inherit; }
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(15, 27, 45, 0.88);
+  background: var(--header-bg);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--line);
 }
@@ -132,7 +145,7 @@ a { color: inherit; }
   font-family: 'IBM Plex Mono', monospace;
   font-size: 13px;
   text-decoration: none;
-  color: var(--paper-dim);
+  color: var(--fg-dim);
 }
 .menu-panel-list a:hover { color: var(--gold); }
 .topbar-code {
@@ -145,7 +158,7 @@ a { color: inherit; }
   font-family: 'IBM Plex Mono', monospace;
   font-size: 13px;
   text-decoration: none;
-  color: var(--paper-dim);
+  color: var(--fg-dim);
   margin-left: 22px;
   transition: color 0.2s ease;
 }
@@ -181,7 +194,7 @@ main { position: relative; z-index: 1; }
   letter-spacing: 0.02em;
   margin: 0;
   line-height: 0.95;
-  color: var(--paper);
+  color: var(--fg);
 }
 .stamp {
   width: 148px;
@@ -211,7 +224,7 @@ main { position: relative; z-index: 1; }
 }
 .hero-sub {
   font-size: 15.5px;
-  color: var(--paper-dim);
+  color: var(--fg-dim);
   max-width: 480px;
   margin: 0 auto 30px;
 }
@@ -315,7 +328,7 @@ main { position: relative; z-index: 1; }
 .areas { padding: 0 24px 70px; text-align: center; }
 .areas-note {
   font-size: 13.5px;
-  color: var(--paper-dim);
+  color: var(--fg-dim);
   margin: 0 auto 30px;
 }
 .stamps-grid {
@@ -343,7 +356,7 @@ main { position: relative; z-index: 1; }
 .mini-stamp-label {
   font-family: 'Big Shoulders Stencil', sans-serif;
   font-size: 15px;
-  color: var(--paper);
+  color: var(--fg);
 }
 .mini-stamp-status {
   font-family: 'IBM Plex Mono', monospace;
@@ -503,6 +516,34 @@ main { position: relative; z-index: 1; }
 }
 .to-top:hover { background: var(--ink-soft); }
 
+.theme-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 74px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  background: var(--ink);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 20;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.theme-toggle:hover { background: var(--ink-soft); transform: translateY(-2px); }
+
+.visitor-counter {
+  margin: 8px 0 0;
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  opacity: 0.8;
+}
+
 /* REPRODUCTOR DE AUDIO FLOTANTE */
 .audio-player {
   position: fixed;
@@ -510,13 +551,34 @@ main { position: relative; z-index: 1; }
   bottom: 20px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   background: var(--ink);
   border: 1.5px solid var(--gold);
   border-radius: 999px;
-  padding: 5px;
+  padding: 5px 10px 5px 5px;
   z-index: 20;
 }
+.audio-track-name {
+  position: absolute;
+  bottom: 52px;
+  left: 0;
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--gold);
+  background: var(--ink);
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  padding: 4px 12px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+.audio-track-name.is-visible { opacity: 1; transform: translateY(0); }
 .audio-btn,
 .audio-toggle {
   width: 34px;
@@ -531,6 +593,7 @@ main { position: relative; z-index: 1; }
   font-size: 14px;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.15s ease;
+  flex-shrink: 0;
 }
 .audio-toggle { width: 38px; height: 38px; font-size: 16px; }
 .audio-btn:hover,
@@ -543,4 +606,12 @@ main { position: relative; z-index: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
   .audio-toggle.is-playing .audio-icon { animation: none; }
+}
+.audio-volume {
+  width: 60px;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+@media (max-width: 380px) {
+  .audio-volume { display: none; }
 }
