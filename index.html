@@ -174,20 +174,44 @@
       <p class="section-label">Áreas registradas</p>
       <p class="areas-note">Se van a ir habilitando con el tiempo — la primera ya está en trámite ✅</p>
       <div class="stamps-grid">
-        <div class="mini-stamp">
-          <span class="mini-stamp-icon" aria-hidden="true">🎬</span>
-          <span class="mini-stamp-label">Contenido</span>
-          <span class="mini-stamp-status">próximamente</span>
+        <div class="mini-stamp-flip" id="flipContenido" role="button" tabindex="0" aria-label="Ver más sobre Contenido">
+          <div class="mini-stamp-inner">
+            <div class="mini-stamp mini-stamp-front">
+              <span class="mini-stamp-icon" aria-hidden="true">🎬</span>
+              <span class="mini-stamp-label">Contenido</span>
+              <span class="mini-stamp-status">próximamente</span>
+            </div>
+            <div class="mini-stamp mini-stamp-back">
+              <span class="mini-stamp-back-text">Videos, clips o lo que se me ocurra — todavía cocinándose 👨‍🍳</span>
+            </div>
+          </div>
         </div>
-        <div class="mini-stamp">
-          <span class="mini-stamp-icon" aria-hidden="true">🧰</span>
-          <span class="mini-stamp-label">Servicios</span>
-          <span class="mini-stamp-status">próximamente</span>
+
+        <div class="mini-stamp-flip" id="flipServicios" role="button" tabindex="0" aria-label="Ver más sobre Servicios">
+          <div class="mini-stamp-inner">
+            <div class="mini-stamp mini-stamp-front">
+              <span class="mini-stamp-icon" aria-hidden="true">🧰</span>
+              <span class="mini-stamp-label">Servicios</span>
+              <span class="mini-stamp-status">próximamente</span>
+            </div>
+            <div class="mini-stamp mini-stamp-back">
+              <span class="mini-stamp-back-text">Desarrollo, bots y algún que otro apaño técnico. En camino 🔧</span>
+            </div>
+          </div>
         </div>
-        <div class="mini-stamp mini-stamp-active">
-          <span class="mini-stamp-icon" aria-hidden="true">📁</span>
-          <span class="mini-stamp-label">Proyectos</span>
-          <a href="https://github.com/AmilcarGit/TheYui-MD" target="_blank" rel="noopener" class="mini-stamp-link">TheYui-MD →</a>
+
+        <div class="mini-stamp-flip" id="flipProyectos" role="button" tabindex="0" aria-label="Ver más sobre Proyectos">
+          <div class="mini-stamp-inner">
+            <div class="mini-stamp mini-stamp-front mini-stamp-active">
+              <span class="mini-stamp-icon" aria-hidden="true">📁</span>
+              <span class="mini-stamp-label">Proyectos</span>
+              <span class="mini-stamp-status">TheYui-MD →</span>
+            </div>
+            <div class="mini-stamp mini-stamp-back">
+              <span class="mini-stamp-back-text">Bot de WhatsApp con sistema de plugins.</span>
+              <a href="https://github.com/AmilcarGit/TheYui-MD" target="_blank" rel="noopener" class="mini-stamp-link">Ver repo →</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
