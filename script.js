@@ -88,17 +88,17 @@ const playlist = [
   { title: 'Corazón Serrano Mix Poco Yo', src: 'audio/Corazón Serrano Mix Poco Yo.mp3' },
   { title: 'Que me está pasando', src: 'audio/Que me está pasando.mp3' },
   { title: 'Golaso', src: 'audio/Golaso.mp3' },
-  { title: 'Corazón De Seda', src: 'audio/Corazon De Seda (MP3_160K).mp3' },
+  { title: 'Corazón De Seda', src: 'audio/Corazon De Seda(MP3_160K).mp3' },
   { title: 'Bandido', src: 'audio/Bandido(MP3_160K).mp3' },
   { title: 'Ay Vamos', src: 'audio/Ay Vamos(MP3_160K).mp3' },
   { title: 'Cuando Florezca el Amor', src: 'audio/Cuando Florezca el Amor(MP3_160K).mp3' },
-  { title: 'Qué Pasó', src: 'audio/Qué Pasó(MP3_160K).mp3' },
+  { title: 'Qué Pasó', src: 'audio/Y Qué Pasó(MP3_160K).mp3' },
   { title: 'Sigues Con Él (Remix)', src: 'audio/Sigues Con Él (Remix) (MP3_160K).mp3' },
   { title: 'Sector 7 al mundial', src: 'audio/Sector 7 al mundial.mp3' },
   { title: 'Yo x Ti, Tu x Mi', src: 'audio/Yo x Ti_ Tu x Mi saxx ff.mp3' },
-  { title: 'Solo de Mí', src: 'audio/Solo de Mí Benja OFC.mp3' },
-  { title: 'HEIST', src: 'audio/HEIST Oficial.mp3' },
-  { title: 'Música original de Gost', src: 'audio/Música original de Gost OFC.mp3' },
+  { title: 'Solo de Mí', src: 'audio/Solo de Mí Benja OFC .mp3' },
+  { title: 'HEIST', src: 'audio/HEIST Oficial .mp3' },
+  { title: 'Música original de Gost', src: 'audio/Música original de Gost OFC .mp3' },
 ];
 
 const bgAudio = document.getElementById('bgAudio');
