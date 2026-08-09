@@ -278,6 +278,11 @@
             <button type="button" class="user-signout" id="signOutBtn" data-i18n="btnSignOut">Salir</button>
           </div>
 
+          <div class="nickname-row">
+            <input type="text" id="nicknameInput" placeholder="Tu apodo (se muestra en tus canciones)" data-i18n-placeholder="phApodo" maxlength="30">
+            <button type="button" class="btn nickname-save" id="nicknameSaveBtn" data-i18n="btnGuardarApodo">Guardar</button>
+          </div>
+
           <form id="songUploadForm" class="song-upload-form">
             <input type="text" id="songTitle" placeholder="Título de la canción" data-i18n-placeholder="phTitulo" maxlength="80" required>
             <input type="url" id="songUrl" placeholder="Link directo al .mp3 (Catbox, Dropbox, etc.)" data-i18n-placeholder="phLink" maxlength="400" required>
