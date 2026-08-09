@@ -94,6 +94,11 @@ const playlist = [
   { title: 'Cuando Florezca el Amor', src: 'audio/Cuando Florezca el Amor(MP3_160K).mp3' },
   { title: 'Qué Pasó', src: 'audio/Qué Pasó(MP3_160K).mp3' },
   { title: 'Sigues Con Él (Remix)', src: 'audio/Sigues Con Él (Remix) (MP3_160K).mp3' },
+  { title: 'Sector 7 al mundial', src: 'audio/Sector 7 al mundial.mp3' },
+  { title: 'Yo x Ti, Tu x Mi', src: 'audio/Yo x Ti_ Tu x Mi saxx ff.mp3' },
+  { title: 'Solo de Mí', src: 'audio/Solo de Mí Benja OFC.mp3' },
+  { title: 'HEIST', src: 'audio/HEIST Oficial.mp3' },
+  { title: 'Música original de Gost', src: 'audio/Música original de Gost OFC.mp3' },
 ];
 
 const bgAudio = document.getElementById('bgAudio');
