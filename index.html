@@ -261,7 +261,39 @@
         </form>
       </div>
     </section>
-    <!-- LIBRO DE FIRMAS -->
+    <!-- MÚSICA DE LA COMUNIDAD -->
+    <section class="comunidad reveal" id="comunidad">
+      <p class="section-label" data-i18n="labelComunidad">Música de la comunidad</p>
+      <p class="comunidad-note" data-i18n="comunidadNote">Iniciá sesión con Google y sumá hasta 2 canciones (link directo al mp3) para que todos las escuchen acá.</p>
+
+      <div class="comunidad-box">
+        <div id="authLoggedOut">
+          <button type="button" class="btn" id="googleSignInBtn" data-i18n="btnSignIn">Iniciar sesión con Google</button>
+        </div>
+
+        <div id="authLoggedIn" hidden>
+          <div class="user-bar">
+            <img id="userPhoto" class="user-photo" src="" alt="">
+            <span id="userName" class="user-name"></span>
+            <button type="button" class="user-signout" id="signOutBtn" data-i18n="btnSignOut">Salir</button>
+          </div>
+
+          <form id="songUploadForm" class="song-upload-form">
+            <input type="text" id="songTitle" placeholder="Título de la canción" data-i18n-placeholder="phTitulo" maxlength="80" required>
+            <input type="url" id="songUrl" placeholder="Link directo al .mp3 (Catbox, Dropbox, etc.)" data-i18n-placeholder="phLink" maxlength="400" required>
+            <button type="submit" class="btn" data-i18n="btnSubirCancion">Subir canción</button>
+          </form>
+          <p class="song-limit-note" id="songLimitNote"></p>
+        </div>
+
+        <div id="adminPanel" hidden>
+          <p class="admin-label" data-i18n="labelAdmin">🔑 Panel de administrador</p>
+        </div>
+
+        <ul class="comunidad-list" id="comunidadList"></ul>
+      </div>
+    </section>
+
     <section class="firmas reveal" id="firmas">
       <p class="section-label" data-i18n="labelFirmas">Libro de firmas</p>
       <p class="firmas-note" data-i18n="firmasNote">Dejá tu firma o un mensaje — queda registrado acá abajo, a la vista de todos.</p>
@@ -303,6 +335,11 @@
     <input type="range" class="audio-volume" id="audioVolume" min="0" max="100" value="35" aria-label="Volumen">
   </div>
   <audio id="bgAudio" preload="none"></audio>
+
+  <!-- Firebase (login + música de la comunidad) -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 
   <script src="script.js"></script>
 </body>
