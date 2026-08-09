@@ -49,7 +49,7 @@
       </svg>
       <span class="loading-icon" aria-hidden="true">📜</span>
     </div>
-    <p class="loading-text">Sellando documento<span class="loading-dots">...</span></p>
+    <p class="loading-text"><span data-i18n="loadingText">Sellando documento</span><span class="loading-dots">...</span></p>
   </div>
 
   <!-- watermark de fondo -->
@@ -59,9 +59,9 @@
     <div class="topbar-inner">
       <span class="topbar-code">EXP. N° 001/2026</span>
       <nav class="topbar-nav">
-        <a href="#credencial">Credencial</a>
-        <a href="#areas">Áreas</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#credencial" data-i18n="navCredencial">Credencial</a>
+        <a href="#areas" data-i18n="navAreas">Áreas</a>
+        <a href="#contacto" data-i18n="navContacto">Contacto</a>
       </nav>
       <button class="menu-btn" id="menuBtn" aria-label="Abrir menú de enlaces" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -71,7 +71,7 @@
 
       <div class="menu-group">
         <button type="button" class="menu-group-btn" aria-expanded="false" aria-controls="menuGroupWpp">
-          <span class="menu-group-title"><span class="menu-group-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4A8.5 8.5 0 0 1 8 18.6L3 20l1.4-5a8.3 8.3 0 0 1-1-3.9A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/></svg></span> Grupos de WhatsApp</span><span class="menu-caret" aria-hidden="true">▾</span>
+          <span class="menu-group-title"><span class="menu-group-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4A8.5 8.5 0 0 1 8 18.6L3 20l1.4-5a8.3 8.3 0 0 1-1-3.9A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/></svg></span> <span data-i18n="menuWpp">Grupos de WhatsApp</span></span><span class="menu-caret" aria-hidden="true">▾</span>
         </button>
         <ul class="menu-group-list" id="menuGroupWpp" hidden>
           <li><a href="https://chat.whatsapp.com/DtKYjbKslEzLXKVBE4ymHM?s=cl&p=a&ilr=0&amv=2" target="_blank" rel="noopener">TheYui-MD 🦋</a></li>
@@ -81,7 +81,7 @@
 
       <div class="menu-group">
         <button type="button" class="menu-group-btn" aria-expanded="false" aria-controls="menuGroupBots">
-          <span class="menu-group-title"><span class="menu-group-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="2"/><circle cx="9" cy="13.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="13.5" r="1.2" fill="currentColor" stroke="none"/><path d="M12 8V4m-3 0h6"/></svg></span> Bots de WhatsApp</span><span class="menu-caret" aria-hidden="true">▾</span>
+          <span class="menu-group-title"><span class="menu-group-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="2"/><circle cx="9" cy="13.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="13.5" r="1.2" fill="currentColor" stroke="none"/><path d="M12 8V4m-3 0h6"/></svg></span> <span data-i18n="menuBotsTitle">Bots de WhatsApp</span></span><span class="menu-caret" aria-hidden="true">▾</span>
         </button>
         <ul class="menu-group-list" id="menuGroupBots" hidden>
           <li><a href="https://github.com/AmilcarGit/TheYui-MD" target="_blank" rel="noopener">TheYui-MD — código fuente</a></li>
@@ -90,12 +90,12 @@
 
       <div class="menu-group">
         <button type="button" class="menu-group-btn" aria-expanded="false" aria-controls="menuGroupGithub">
-          <span class="menu-group-title"><span class="menu-group-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0-2.8 17.5c.4.1.6-.2.6-.4v-1.6c-2.5.6-3-1.1-3-1.1-.4-1-1-1.3-1-1.3-.8-.6.1-.5.1-.5.9.1 1.4.9 1.4.9.8 1.4 2.2 1 2.7.7.1-.6.3-1 .6-1.2-2-.2-4.1-1-4.1-4.5 0-1 .3-1.8.9-2.5-.1-.2-.4-1.2.1-2.5 0 0 .8-.2 2.5.9a8.6 8.6 0 0 1 4.6 0c1.7-1.1 2.5-.9 2.5-.9.5 1.3.2 2.3.1 2.5.6.7.9 1.5.9 2.5 0 3.5-2.1 4.3-4.1 4.5.3.3.6.8.6 1.6v2.4c0 .2.2.5.6.4A9 9 0 0 0 12 3z"/></svg></span> GitHub</span><span class="menu-caret" aria-hidden="true">▾</span>
+          <span class="menu-group-title"><span class="menu-group-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0-2.8 17.5c.4.1.6-.2.6-.4v-1.6c-2.5.6-3-1.1-3-1.1-.4-1-1-1.3-1-1.3-.8-.6.1-.5.1-.5.9.1 1.4.9 1.4.9.8 1.4 2.2 1 2.7.7.1-.6.3-1 .6-1.2-2-.2-4.1-1-4.1-4.5 0-1 .3-1.8.9-2.5-.1-.2-.4-1.2.1-2.5 0 0 .8-.2 2.5.9a8.6 8.6 0 0 1 4.6 0c1.7-1.1 2.5-.9 2.5-.9.5 1.3.2 2.3.1 2.5.6.7.9 1.5.9 2.5 0 3.5-2.1 4.3-4.1 4.5.3.3.6.8.6 1.6v2.4c0 .2.2.5.6.4A9 9 0 0 0 12 3z"/></svg></span> <span data-i18n="menuGithubTitle">GitHub</span></span><span class="menu-caret" aria-hidden="true">▾</span>
         </button>
         <ul class="menu-group-list" id="menuGroupGithub" hidden>
-          <li class="menu-group-sublabel">Bots</li>
+          <li class="menu-group-sublabel" data-i18n="menuSubBots">Bots</li>
           <li><a href="https://github.com/AmilcarGit/TheYui-MD" target="_blank" rel="noopener">TheYui-MD</a></li>
-          <li class="menu-group-sublabel">Sitios web</li>
+          <li class="menu-group-sublabel" data-i18n="menuSubSites">Sitios web</li>
           <li><a href="https://github.com/amilcargit1/AmilcarGit_Sitio" target="_blank" rel="noopener">AmilcarGit_Sitio</a></li>
         </ul>
       </div>
@@ -107,7 +107,7 @@
   <main>
     <section class="hero" id="inicio">
       <div class="hero-inner">
-        <p class="hero-eyebrow">Documento de presentación · Identidad en construcción</p>
+        <p class="hero-eyebrow" data-i18n="heroEyebrow">Documento de presentación · Identidad en construcción</p>
         <h1 class="hero-title">AMILCARGIT</h1>
         <div class="stamp" aria-hidden="true">
           <svg viewBox="0 0 200 200" class="stamp-svg">
@@ -122,18 +122,18 @@
             <text x="100" y="108" class="stamp-center">VERIFICADO</text>
           </svg>
         </div>
-        <p class="hero-sub">
+        <p class="hero-sub" data-i18n="heroSub">
           Marca personal en proceso de registro. Este documento se irá completando
           a medida que el proyecto tome forma — por ahora, es la presentación oficial.
         </p>
-        <a class="btn" href="#credencial">Ver credencial →</a>
+        <a class="btn" href="#credencial" data-i18n="btnVerCredencial">Ver credencial →</a>
         <p class="mood-chip" id="moodChip"></p>
       </div>
     </section>
 
     <!-- CREDENCIAL / SOBRE MÍ -->
     <section class="credencial reveal" id="credencial">
-      <p class="section-label">Sobre mí</p>
+      <p class="section-label" data-i18n="labelSobreMi">Sobre mí</p>
       <div class="card">
         <span class="washi-tape washi-tape-1" aria-hidden="true"></span>
         <span class="washi-tape washi-tape-2" aria-hidden="true"></span>
@@ -146,23 +146,23 @@
           <h2 class="card-name">AMILCARGIT OFICIAL</h2>
           <dl class="field-list">
             <div class="field-row">
-              <dt>Rol</dt>
-              <dd>Desarrollador 🐱 · Creador de contenido 📨</dd>
+              <dt data-i18n="dtRol">Rol</dt>
+              <dd data-i18n="ddRol">Desarrollador 🐱 · Creador de contenido 📨</dd>
             </div>
             <div class="field-row">
-              <dt>Sede</dt>
-              <dd>Marcabal Grande, Perú</dd>
+              <dt data-i18n="dtSede">Sede</dt>
+              <dd data-i18n="ddSede">Marcabal Grande, Perú</dd>
             </div>
             <div class="field-row">
-              <dt>N° de registro</dt>
+              <dt data-i18n="dtRegistro">N° de registro</dt>
               <dd>AG-2026-001</dd>
             </div>
             <div class="field-row">
-              <dt>Estado</dt>
-              <dd><span class="badge">En construcción</span></dd>
+              <dt data-i18n="dtEstado">Estado</dt>
+              <dd><span class="badge" data-i18n="badgeEstado">En construcción</span></dd>
             </div>
           </dl>
-          <p class="card-bio">
+          <p class="card-bio" data-i18n="cardBio">
             Cada día aprendiendo más 🦋
           </p>
         </div>
@@ -171,18 +171,18 @@
 
     <!-- ÁREAS -->
     <section class="areas reveal" id="areas">
-      <p class="section-label">Áreas registradas</p>
-      <p class="areas-note">Se van a ir habilitando con el tiempo — la primera ya está en trámite ✅</p>
+      <p class="section-label" data-i18n="labelAreas">Áreas registradas</p>
+      <p class="areas-note" data-i18n="areasNote">Se van a ir habilitando con el tiempo — la primera ya está en trámite ✅</p>
       <div class="stamps-grid">
         <div class="mini-stamp-flip" id="flipContenido" role="button" tabindex="0" aria-label="Ver más sobre Contenido">
           <div class="mini-stamp-inner">
             <div class="mini-stamp mini-stamp-front">
               <span class="mini-stamp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 20.5 5.5 21 8 3.5 11z"/><rect x="3" y="9" width="18" height="11" rx="1"/><path d="M7.5 6.2 10.5 9M13 5.2 16 8"/></svg></span>
-              <span class="mini-stamp-label">Contenido</span>
+              <span class="mini-stamp-label" data-i18n="labelContenido">Contenido</span>
               <span class="mini-stamp-status">próximamente</span>
             </div>
             <div class="mini-stamp mini-stamp-back">
-              <span class="mini-stamp-back-text">Videos, clips o lo que se me ocurra — todavía cocinándose 👨‍🍳</span>
+              <span class="mini-stamp-back-text" data-i18n="backContenido">Videos, clips o lo que se me ocurra — todavía cocinándose 👨‍🍳</span>
             </div>
           </div>
         </div>
@@ -191,11 +191,11 @@
           <div class="mini-stamp-inner">
             <div class="mini-stamp mini-stamp-front">
               <span class="mini-stamp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.1L3 17.5 5.5 20l6.1-6.1a4 4 0 0 0 5.1-5.6l-2.6 2.6-2-2z"/></svg></span>
-              <span class="mini-stamp-label">Servicios</span>
+              <span class="mini-stamp-label" data-i18n="labelServicios">Servicios</span>
               <span class="mini-stamp-status">próximamente</span>
             </div>
             <div class="mini-stamp mini-stamp-back">
-              <span class="mini-stamp-back-text">Desarrollo, bots y algún que otro apaño técnico. En camino 🔧</span>
+              <span class="mini-stamp-back-text" data-i18n="backServicios">Desarrollo, bots y algún que otro apaño técnico. En camino 🔧</span>
             </div>
           </div>
         </div>
@@ -204,12 +204,12 @@
           <div class="mini-stamp-inner">
             <div class="mini-stamp mini-stamp-front mini-stamp-active">
               <span class="mini-stamp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5a1 1 0 0 1 1-1h5l2 2h9a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg></span>
-              <span class="mini-stamp-label">Proyectos</span>
+              <span class="mini-stamp-label" data-i18n="labelProyectos">Proyectos</span>
               <span class="mini-stamp-status">TheYui-MD →</span>
             </div>
             <div class="mini-stamp mini-stamp-back">
-              <span class="mini-stamp-back-text">Bot de WhatsApp con sistema de plugins.</span>
-              <a href="https://github.com/AmilcarGit/TheYui-MD" target="_blank" rel="noopener" class="mini-stamp-link">Ver repo →</a>
+              <span class="mini-stamp-back-text" data-i18n="backProyectos">Bot de WhatsApp con sistema de plugins.</span>
+              <a href="https://github.com/AmilcarGit/TheYui-MD" target="_blank" rel="noopener" class="mini-stamp-link" data-i18n="verRepo">Ver repo →</a>
             </div>
           </div>
         </div>
@@ -218,9 +218,9 @@
 
     <!-- CONTACTO -->
     <section class="contacto reveal" id="contacto">
-      <p class="section-label">Solicitud de contacto</p>
+      <p class="section-label" data-i18n="labelContacto">Solicitud de contacto</p>
       <div class="contacto-box">
-        <p class="contacto-intro">
+        <p class="contacto-intro" data-i18n="contactoIntro">
           Para consultas, propuestas o simplemente para saludar, completá los
           datos o escribí directo por estos medios:
         </p>
@@ -240,25 +240,40 @@
         </ul>
 
         <a class="btn btn-share" id="shareBtn" href="https://wa.me/?text=Mir%C3%A1%20mi%20perfil%3A%20https%3A%2F%2Familcargit-ofc.onrender.com" target="_blank" rel="noopener">
-          📤 Compartir por WhatsApp
+          <span data-i18n="btnCompartir">📤 Compartir por WhatsApp</span>
         </a>
 
         <form class="contact-form" id="contactForm" action="https://formspree.io/f/mrendojz" method="POST">
           <div class="form-row">
-            <label for="nombre">Nombre</label>
+            <label for="nombre" data-i18n="labelNombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" required>
           </div>
           <div class="form-row">
-            <label for="email">Email</label>
+            <label for="email" data-i18n="labelEmailForm">Email</label>
             <input type="email" id="email" name="email" required>
           </div>
           <div class="form-row">
-            <label for="mensaje">Mensaje</label>
+            <label for="mensaje" data-i18n="labelMensaje">Mensaje</label>
             <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
           </div>
-          <button type="submit" class="btn btn-form">Enviar solicitud</button>
-          <p class="form-note" id="formNote" role="status" aria-live="polite" hidden>Formulario enviado. Gracias por escribir.</p>
+          <button type="submit" class="btn btn-form" data-i18n="btnEnviar">Enviar solicitud</button>
+          <p class="form-note" id="formNote" role="status" aria-live="polite" hidden><span data-i18n="formNoteText">Formulario enviado. Gracias por escribir.</span></p>
         </form>
+      </div>
+    </section>
+    <!-- LIBRO DE FIRMAS -->
+    <section class="firmas reveal" id="firmas">
+      <p class="section-label" data-i18n="labelFirmas">Libro de firmas</p>
+      <p class="firmas-note" data-i18n="firmasNote">Dejá tu firma o un mensaje — queda registrado acá abajo, a la vista de todos.</p>
+      <div class="firmas-box">
+        <script src="https://utteranc.es/client.js"
+          repo="amilcargit1/AmilcarGit_Sitio"
+          issue-term="pathname"
+          label="firma-visitante"
+          theme="photon-dark"
+          crossorigin="anonymous"
+          async>
+        </script>
       </div>
     </section>
   </main>
@@ -266,8 +281,8 @@
   <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
   <footer class="footer">
-    <p>AMILCARGIT OFICIAL — Documento generado en 2026. Todos los datos son provisorios hasta su validación final.</p>
-    <p class="visitor-counter" id="visitorCounter">Visitante N° <span id="visitorCount">······</span></p>
+    <p data-i18n="footerText">AMILCARGIT OFICIAL — Documento generado en 2026. Todos los datos son provisorios hasta su validación final.</p>
+    <p class="visitor-counter" id="visitorCounter"><span data-i18n="visitorLabel">Visitante N°</span> <span id="visitorCount">······</span></p>
   </footer>
 
   <a href="#inicio" class="to-top" aria-label="Volver arriba">↑</a>
@@ -275,6 +290,8 @@
   <button type="button" class="theme-toggle" id="themeToggle" aria-label="Cambiar a modo claro">
     <span aria-hidden="true">☀️</span>
   </button>
+
+  <button type="button" class="lang-toggle" id="langToggle" aria-label="Switch to English">ES</button>
 
   <div class="audio-player" id="audioPlayer">
     <span class="audio-track-name" id="audioTrackName" aria-live="polite"></span>
