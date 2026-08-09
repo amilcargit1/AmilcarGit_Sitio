@@ -276,3 +276,54 @@ function launchConfetti() {
     piece.addEventListener('animationend', () => piece.remove());
   }
 }
+
+// ===== SELLOS QUE SE DAN VUELTA (Áreas) =====
+document.querySelectorAll('.mini-stamp-flip').forEach((flipCard) => {
+  const toggleFlip = (e) => {
+    // si el click vino del link del dorso, dejarlo navegar sin volver a girar la tarjeta
+    if (e.target.closest('.mini-stamp-link')) return;
+    flipCard.classList.toggle('is-flipped');
+  };
+  flipCard.addEventListener('click', toggleFlip);
+  flipCard.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      flipCard.classList.toggle('is-flipped');
+    }
+  });
+});
+
+// ===== TARJETA CREDENCIAL: TILT 3D QUE SIGUE EL MOUSE =====
+const tiltCard = document.querySelector('.card');
+if (tiltCard
+    && window.matchMedia('(hover: hover) and (pointer: fine)').matches
+    && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  tiltCard.addEventListener('mousemove', (e) => {
+    const rect = tiltCard.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width;  // 0 a 1
+    const py = (e.clientY - rect.top) / rect.height;
+    const rotateY = (px - 0.5) * 14;   // -7deg a 7deg
+    const rotateX = (0.5 - py) * 10;   // -5deg a 5deg
+    tiltCard.style.transition = 'transform 0.08s ease-out';
+    tiltCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+  });
+  tiltCard.addEventListener('mouseleave', () => {
+    tiltCard.style.transition = 'transform 0.5s ease';
+    tiltCard.style.transform = 'perspective(1000px)';
+  });
+}
+
+// ===== PARALLAX DEL FONDO AL HACER SCROLL =====
+const watermarkEl = document.querySelector('.watermark');
+if (watermarkEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const drift = window.scrollY * 0.12;
+      watermarkEl.style.transform = `translate(-50%, calc(-50% + ${drift}px)) rotate(-8deg)`;
+      ticking = false;
+    });
+  }, { passive: true });
+}
