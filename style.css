@@ -57,13 +57,17 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--page-bg);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(46,107,255,0.12), transparent 42%),
+    radial-gradient(circle at 88% 12%, rgba(255,59,59,0.09), transparent 46%),
+    radial-gradient(circle at 50% 95%, rgba(201,162,39,0.07), transparent 50%),
+    var(--page-bg);
   color: var(--fg);
   font-family: 'Inter', sans-serif;
   line-height: 1.5;
   position: relative;
   overflow-x: hidden;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a { color: inherit; }
@@ -142,7 +146,7 @@ a { color: inherit; }
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 16px 34px rgba(0,0,0,0.4);
+  box-shadow: 6px 10px 24px rgba(0,0,0,0.3), 14px 22px 44px rgba(0,0,0,0.35);
   position: relative;
   overflow: hidden;
   gap: 4px;
@@ -187,6 +191,9 @@ a { color: inherit; }
   text-transform: uppercase;
 }
 .menu-group-btn:hover { color: var(--gold); }
+.menu-group-title { display: flex; align-items: center; gap: 9px; }
+.menu-group-icon { display: flex; color: var(--gold); flex-shrink: 0; }
+.menu-group-icon svg { width: 17px; height: 17px; }
 .menu-caret {
   color: var(--gold);
   transition: transform 0.2s ease;
@@ -343,9 +350,9 @@ main { position: relative; z-index: 1; }
   border: 1px solid var(--gold);
   position: relative;
   box-shadow:
-    0 2px 0 rgba(0,0,0,0.15),
-    0 10px 20px rgba(0,0,0,0.25),
-    0 26px 55px rgba(0,0,0,0.35);
+    inset 1px 1px 0 rgba(255,255,255,0.5),
+    6px 8px 16px rgba(0,0,0,0.22),
+    14px 22px 46px rgba(0,0,0,0.32);
   padding: 28px;
   display: grid;
   grid-template-columns: 120px 1fr;
@@ -356,9 +363,9 @@ main { position: relative; z-index: 1; }
 }
 .card:hover {
   box-shadow:
-    0 2px 0 rgba(0,0,0,0.15),
-    0 14px 28px rgba(0,0,0,0.3),
-    0 34px 65px rgba(0,0,0,0.4),
+    inset 1px 1px 0 rgba(255,255,255,0.6),
+    8px 12px 22px rgba(0,0,0,0.28),
+    18px 30px 60px rgba(0,0,0,0.38),
     0 0 0 1px rgba(46,107,255,0.35),
     0 0 30px rgba(255,59,59,0.25);
 }
@@ -464,7 +471,7 @@ main { position: relative; z-index: 1; }
   justify-content: center;
   gap: 6px;
   opacity: 0.85;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.25), inset 0 -2px 3px rgba(255,255,255,0.04);
+  box-shadow: inset -2px -2px 4px rgba(0,0,0,0.25), inset 2px 2px 3px rgba(255,255,255,0.05);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
@@ -483,7 +490,9 @@ main { position: relative; z-index: 1; }
 .mini-stamp-icon {
   font-size: 22px;
   line-height: 1;
+  color: var(--gold);
 }
+.mini-stamp-icon svg { width: 26px; height: 26px; }
 .mini-stamp-label {
   font-family: 'Big Shoulders Stencil', sans-serif;
   font-size: 15px;
@@ -533,7 +542,7 @@ main { position: relative; z-index: 1; }
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 6px;
   padding: 28px;
-  box-shadow: 0 2px 0 rgba(0,0,0,0.15), 0 16px 34px rgba(0,0,0,0.3);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.06), 6px 10px 24px rgba(0,0,0,0.25), 12px 20px 44px rgba(0,0,0,0.3);
 }
 [data-theme="light"] .contacto-box {
   background: rgba(255,255,255,0.4);
